@@ -165,7 +165,9 @@ This file defines a CDKTF stack. In this example, the stack provisions an AWS S3
 ```typescript
 import { Construct } from "constructs";
 import { TerraformStack } from "cdktf";
-import { AwsProvider, s3 } from "@cdktf/provider-aws";
+import { AwsProvider } from "@cdktf/provider-aws/lib/provider";
+import { S3Bucket  } from "@cdktf/provider-aws/lib/s3-bucket";
+
 
 // Define a custom stack class extending TerraformStack
 export class MyStack extends TerraformStack {
@@ -177,13 +179,16 @@ export class MyStack extends TerraformStack {
       region: "us-east-1", // You can change this to your desired AWS region
     });
 
+
+    
     // Define an S3 bucket
-    new s3.S3Bucket(this, "MyBucket", {
+    new S3Bucket(this, "MyBucket", {
       bucket: "my-cdktf-sample-bucket",  // Replace with a unique bucket name
       acl: "private",                    // Define bucket access level (private, public-read, etc.)
     });
   }
 }
+
 
 ```
 
