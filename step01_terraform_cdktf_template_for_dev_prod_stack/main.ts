@@ -28,7 +28,7 @@ try {
 console.log("config==========>",config);
 
 // Instantiate the stack
-new MyStack(app, `step00_hello_cdktf-${config.stage}`,{
+new MyStack(app, `step01_hello_cdktf-${config.stage}`,{
   config: config
 });
 
