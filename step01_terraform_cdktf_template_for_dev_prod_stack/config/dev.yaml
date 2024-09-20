@@ -1,0 +1,9 @@
+
+environment: development
+ 
+
+compute:
+  ec2:
+    os_ami: ami_123456789
+    os_size: t2.micro
+      

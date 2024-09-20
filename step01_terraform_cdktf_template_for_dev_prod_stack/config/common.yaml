@@ -1,0 +1,12 @@
+aws_account: '951882055661'
+aws_region: us-east-1
+
+name: YourProjectName
+tags:
+  app: project_tag
+emailAddress: xyz@gmail.com
+
+
+
+
+  
