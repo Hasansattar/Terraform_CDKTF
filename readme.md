@@ -59,9 +59,15 @@ npm i @cdktf/provider-aws
 <!-- cdktf provider add "hashicorp/aws" -->
 
 <!-- cdktf get -->
-cdktf synth    
+
+cdktf synth 
+
 cdktf synth --help 
+
 cdktf plan
+
 cdktf deploy
+
 cdktf deploy --help
+
 cdktf destroy
