@@ -138,6 +138,7 @@ my-terraform-cdk-project/
 ```
 
 **Step 3: Code Sample**
+
 ``main.ts``
 
 This is the entry point of the application, where you define and instantiate your Terraform stack.
@@ -156,6 +157,7 @@ new MyStack(app, "MyCDKTFStack");
 app.synth();
 
 ```
+
 ``stacks/my-stack.ts``
 
 This file defines a CDKTF stack. In this example, the stack provisions an AWS S3 bucket.
@@ -186,7 +188,9 @@ export class MyStack extends TerraformStack {
 ```
 
 **Step 4: Configuration Files**
+
 ``cdktf.json``
+
 This file contains the configuration for the Terraform CDK. It specifies the language, output directory, and more.
 
 ```json
@@ -204,6 +208,7 @@ This file contains the configuration for the Terraform CDK. It specifies the lan
 ``` 
 
 ``package.json``
+
 This file defines the project dependencies, scripts, and configuration for the TypeScript CDKTF project.
 
 ```json
@@ -245,8 +250,7 @@ This file defines the project dependencies, scripts, and configuration for the T
 
 ```
 
-**Step 5: Deploy the Infrastructure
-**
+**Step 5: Deploy the Infrastructure**
 
 Install Dependencies: Run the following command to install the required dependencies:
 
