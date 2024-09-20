@@ -41,15 +41,21 @@ cdktf --help
 
 
 #### Commands
+
 cdktf --help
+
 cdktf version
+
 **I will use store state remotely without --local**
+
 cdktf init --template=typescript 
 
 cdktf init --template=typescript --local 
+
 **--local inform cdktf that we like to store the state of the infrastructure locally, so their a option to store the state of infrastruture remotely** 
 
 npm i @cdktf/provider-aws
+
 <!-- cdktf provider add "hashicorp/aws" -->
 
 <!-- cdktf get -->
