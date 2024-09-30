@@ -9,6 +9,7 @@
     "allowSepCharsInLogicalIds": "true"
     
   },
+  
   "_comment_terraformModules": "This field is used to specify external Terraform modules that your CDKTF app might consume",
   "_comment_context_allowSepCharsInLogicalIds":"allowSepCharsInLogicalIdstrue: This allows the use of separator characters (e.g., dashes - or underscores _) in logical IDs, which can make resource names more readable.When set to true, CDKTF can generate resource names like my-resource-id instead of concatenating names without separators."
 }

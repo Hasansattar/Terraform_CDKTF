@@ -129,18 +129,47 @@ export class MyStack extends TerraformStack {
 
     files.forEach((file) => {
       if (file !== 'index.html') {
+        const contentType = getContentType(file);
         new S3Object(this, file, {
           bucket: websiteBucket.id,
           key: file,
           source: path.resolve(websiteFolder, file),  // Path to each file in the website folder
-          contentType: 'text/html', // Set Content-Type for HTML
+          contentType: contentType, // Set Content-Type for HTML
         });
       }
     });
 
 ```
 
-- his code snippet reads all files from the website directory and uploads them to the S3 bucket, excluding ``index.html``. It assumes that the other files are HTML files, setting their ``contentType`` accordingly.
+- This section reads all the files from the ``website`` folder and uploads them to the S3 bucket (except ``index.html``). The ``getContentType()`` function is used to determine the MIME type based on the file extension..
+
+
+```typescript
+    // Function to get content type based on file extension
+function getContentType(file: string): string {
+  const ext = path.extname(file).toLowerCase();
+  switch (ext) {
+    case '.html':
+      return 'text/html';
+    case '.css':
+      return 'text/css';
+    case '.js':
+      return 'application/javascript';
+    case '.png':
+      return 'image/png';
+    case '.jpg':
+      return 'image/jpeg';
+    case '.gif':
+      return 'image/gif';
+    default:
+      return 'application/octet-stream'; // Default type
+  }
+}
+    
+```
+- 
+This function, getContentType, determines the ``**MIME type**`` (or ``Content-Type**``) for a file based on its extension. MIME types inform browsers or any client interacting with the server about the type of content in a file, which helps in correctly displaying or interpreting that content.
+
 
 **CloudFront Distribution**
 

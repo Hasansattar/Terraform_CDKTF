@@ -65,6 +65,7 @@ new S3BucketPolicy(this, 'bucket-policy', {
 
 
     // Upload index.html to the S3 bucket
+    // Upload index.html to the S3 bucket with Content-Type set
 new S3Object(this, 'IndexFile', {
   bucket: websiteBucket.id,     // Use websiteBucket.id directly
   key: 'index.html',
@@ -77,19 +78,48 @@ new S3Object(this, 'IndexFile', {
     // Example: Add a JS file
     const websiteFolder = path.resolve(__dirname, 'website');
     const files = fs.readdirSync(websiteFolder);
-    console.log("====>",files)
+    console.log("Files to upload:", files);
+
 
     files.forEach((file) => {
       if (file !== 'index.html') {
+        const contentType = getContentType(file); // Implement a function to determine content type
         new S3Object(this, file, {
           bucket: websiteBucket.id,  // Use websiteBucket.id directly
           key: file,
           source: path.resolve(websiteFolder, file),  // Path to each file in the website folder
-          contentType: 'text/html', // Set Content-Type for HTML
+          contentType: contentType, // Set content type dynamically based on file
           
         });
       }
     });
+
+
+
+    // Function to get content type based on file extension
+function getContentType(file: string): string {
+  const ext = path.extname(file).toLowerCase();
+  switch (ext) {
+    case '.html':
+      return 'text/html';
+    case '.css':
+      return 'text/css';
+    case '.js':
+      return 'application/javascript';
+    case '.png':
+      return 'image/png';
+    case '.jpg':
+      return 'image/jpeg';
+    case '.gif':
+      return 'image/gif';
+    default:
+      return 'application/octet-stream'; // Default type
+  }
+}
+     
+
+
+
     
     // Define CloudFront distribution
     const distribution = new CloudfrontDistribution(this, 'WebsiteDistribution', {
