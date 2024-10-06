@@ -1,0 +1,12 @@
+{
+  "name": "azure-function-demo",
+  "version": "1.0.0",
+  "description": "A simple Azure Function example using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "azure-functions-core-tools": "^4.0.0" 
+  }
+}
