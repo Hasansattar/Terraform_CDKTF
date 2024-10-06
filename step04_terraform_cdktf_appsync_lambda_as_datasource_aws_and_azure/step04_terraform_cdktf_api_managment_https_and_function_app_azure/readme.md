@@ -258,7 +258,78 @@ Outputs the Function App URL to be displayed after the deployment for easy acces
 
 
 ```
+### 14. Function app azure
 
+
+``index.ts``
+
+```typescript
+module.exports = async function (context:any, req:any) {
+  context.log('HTTP trigger function processed a request.');
+  
+  const name = req.query.name || (req.body && req.body.name) || "World";
+  const responseMessage = `Hello, ${name}. This HTTP triggered function executed successfully.`;
+
+  context.res = {
+       status: 200, /* Defaults to 200 */
+      body: responseMessage
+  };
+};
+
+```
+``function-serverless.json``
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"],
+      "route": "function-serverless"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+
+```
+
+In Azure Functions, the Authorization Level defines who can access your function and whether they need an API key (function key) or not. There are three main authorization levels:
+
+**1. Anonymous**:
+
+- No API key is required.
+- Anyone can access the function URL without needing the ``?code=...`` query parameter.
+
+**2. Function**:
+
+- Requires a function key.
+- You need to append the function key ``(?code=...)`` to the URL to call the function.
+This is why you're seeing the ``?code=...`` part in your URL.
+
+
+**3. Admin**:
+
+- Requires the master key (admin key) for the function app.
+- This level provides the highest level of security, restricting access to only admin users with the master key.
+
+
+### NOTE:
+Azure Function likely has its Authorization Level set to either **Function** or **Admin**. If you want to access the function without the key, you'll need to change the authorization level to **Anonymous**.
+
+``host.json``
+
+```json
+{
+  "version": "2.0"
+}
+
+```
 
 
 
