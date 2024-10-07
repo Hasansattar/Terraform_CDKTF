@@ -1,0 +1,21 @@
+# type Query {
+#   hello(name: String): String
+# }
+
+
+type Query {
+  hello: String
+  getUser(id: ID!): User
+
+  
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}

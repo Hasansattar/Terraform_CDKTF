@@ -261,6 +261,26 @@ Outputs the Function App URL to be displayed after the deployment for easy acces
 ### 14. Function app azure
 
 
+ **File Structure**
+
+
+```typescript
+function-serverless.zip
+├── function-name/
+│   ├── function.json
+│   ├── index.js
+│   ├── package.json
+│   ├── node_modules/
+└── host.json
+
+```
+Here’s how the file structure should look:
+
+
+
+
+
+
 ``index.ts``
 
 ```typescript
