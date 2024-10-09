@@ -1,0 +1,18 @@
+{
+  "name": "function-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^4.1.1",
+    "@azure/functions": "^3.5.1",
+    "i": "^0.3.7",
+    "npm": "^10.9.0"
+  }
+}
