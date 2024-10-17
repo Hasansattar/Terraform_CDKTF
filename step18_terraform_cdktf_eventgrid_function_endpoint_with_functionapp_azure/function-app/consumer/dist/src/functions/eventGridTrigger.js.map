@@ -1,0 +1,1 @@
+{"version":3,"file":"eventGridTrigger.js","sourceRoot":"","sources":["../../../src/functions/eventGridTrigger.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,gDAA0E;AAE1E,SAAsB,gBAAgB,CAAC,KAAqB,EAAE,OAA0B;;QACpF,OAAO,CAAC,GAAG,CAAC,sCAAsC,EAAE,KAAK,CAAC,CAAC;IAC/D,CAAC;CAAA;AAFD,4CAEC;AAED,eAAG,CAAC,SAAS,CAAC,kBAAkB,EAAE;IAC9B,OAAO,EAAE,gBAAgB;CAC5B,CAAC,CAAC"}
