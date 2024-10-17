@@ -1,0 +1,16 @@
+{
+  "name": "producer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/eventgrid": "^5.8.0",
+    "@azure/functions": "^3.5.1",
+    "@azure/identity": "^4.4.1"
+  }
+}
