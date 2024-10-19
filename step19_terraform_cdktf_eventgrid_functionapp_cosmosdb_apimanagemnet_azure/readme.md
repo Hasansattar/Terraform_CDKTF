@@ -532,3 +532,51 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node
 
 # Note: 
 **You can't mix the v3 and v4 programming models in the same function app. As soon as you register one v4 function in your app, any v3 functions registered in function.json files are ignored.**
+
+
+### Supported versions
+
+
+| Programming Model Version | Support Level | Functions Runtime Version | Node.js Version        | Description                                                                                       |
+|---------------------------|---------------|----------------------------|------------------------|---------------------------------------------------------------------------------------------------|
+| 4.x                       | GA            | 4.25+                      | 20.x, 18.x             | Supports a flexible file structure and code-centric approach to triggers and bindings.             |
+| 3.x                       | GA            | 4.x                        | 20.x, 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+| 2.x                       | n/a           | 3.x                        | 14.x, 12.x, 10.x       | Reached end of support on December 13, 2022. See Functions Versions for more info.                 |
+| 1.x                       | n/a           | 2.x                        | 10.x, 8.x              | Reached end of support on December 13, 2022. See Functions Versions for more info.                 |
+
+
+
+### Folder structure
+The recommended folder structure for a TypeScript project looks like the following example:
+
+```typeScript
+<project_root>/
+ | - .vscode/
+ | - dist/
+ | - node_modules/
+ | - src/
+ | | - functions/
+ | | | - myFirstFunction.ts
+ | | | - mySecondFunction.ts
+ | - test/
+ | | - functions/
+ | | | - myFirstFunction.test.ts
+ | | | - mySecondFunction.test.ts
+ | - .funcignore
+ | - host.json
+ | - local.settings.json
+ | - package.json
+ | - tsconfig.json
+```
+The main project folder, <project_root>, can contain the following files:
+
+
+- **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see Visual Studio Code settings.
+- **dist/**: Contains the compiled JavaScript code after you run a build. The name of this folder can be configured in your "tsconfig.json" file.
+- **src/functions/**: The default location for all functions and their related triggers and bindings.
+- **test/**: (Optional) Contains the test cases of your function app.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains .vscode/ to ignore your editor setting, test/ to ignore test cases, and local.settings.json to prevent local app settings being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see host.json.
+- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see local.settings.file.
+- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **tsconfig.json**: Contains TypeScript compiler options like the output directory.
