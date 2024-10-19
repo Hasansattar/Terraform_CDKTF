@@ -530,4 +530,5 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node
 
 
 
-Here we change
+# Note: 
+**You can't mix the v3 and v4 programming models in the same function app. As soon as you register one v4 function in your app, any v3 functions registered in function.json files are ignored.**
